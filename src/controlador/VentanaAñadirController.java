@@ -7,7 +7,13 @@ package controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import modelo.Persona;
 
 /**
  * FXML Controller class
@@ -16,6 +22,15 @@ import javafx.fxml.Initializable;
  */
 public class VentanaAñadirController implements Initializable {
 
+    @FXML
+    private Button OkButton;
+    @FXML
+    private Button CancelButton;
+    @FXML
+    private TextField nomText;
+    @FXML
+    private TextField apText;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +38,22 @@ public class VentanaAñadirController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void okAct(ActionEvent event) {
+        if ((!nomText.getText().isEmpty())
+        && (nomText.getText().trim().length() != 0)
+        && (!apText.getText().isEmpty())
+        && (apText.getText().trim().length() != 0)){
+            //Persona persAnadir = new Persona(nomText.getText(), apText.getText());
+            misdatos.add();
+        }
+    }
+
+    @FXML
+    private void cancelAct(ActionEvent event) {
+        Stage stage = (Stage) CancelButton.getScene().getWindow();
+        stage.close();
+    }
     
 }
