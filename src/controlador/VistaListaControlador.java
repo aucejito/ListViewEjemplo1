@@ -46,10 +46,12 @@ public class VistaListaControlador implements Initializable {
         textFieldfxID.requestFocus();  //cambio del foco al textfield.
 
         }*/
+        
         FXMLLoader miCargador = new FXMLLoader(getClass().getResource("/vista/VentanaAnadir.fxml"));
         AnchorPane root = (AnchorPane) miCargador.load();
         
-        
+        VentanaAñadirController contPers = miCargador.<VentanaAñadirController>getController();
+        contPers.initPersona();
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

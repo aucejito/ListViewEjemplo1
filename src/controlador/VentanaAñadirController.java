@@ -37,23 +37,28 @@ public class VentanaAñadirController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
-    @FXML
-    private void okAct(ActionEvent event) {
+    public void initPersona(Persona p) {
         if ((!nomText.getText().isEmpty())
-        && (nomText.getText().trim().length() != 0)
-        && (!apText.getText().isEmpty())
-        && (apText.getText().trim().length() != 0)){
-            //Persona persAnadir = new Persona(nomText.getText(), apText.getText());
-            misdatos.add();
+                && (nomText.getText().trim().length() != 0)
+                && (!apText.getText().isEmpty())
+                && (apText.getText().trim().length() != 0)) {
+            p.setNombre(nomText.getText());
+            p.setApellidos(apText.getText());
         }
     }
 
     @FXML
-    private void cancelAct(ActionEvent event) {
+    private void okAct(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void cancelAct(ActionEvent event
+    ) {
         Stage stage = (Stage) CancelButton.getScene().getWindow();
         stage.close();
     }
-    
+
 }
